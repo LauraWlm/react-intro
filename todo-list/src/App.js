@@ -1,16 +1,19 @@
+import React from "react";
 import './App.css';
-import Input from './Input/Input';
-import List from './List/List';
+import Form from './Form/Form';
+import TodoList from './TodoList/TodoList';
 
 function App() {
+  
   return (
     <div className="App">
       <header className="App-header">
         <h1>
           My Todo App
         </h1>
-        <Input />
-        < List />
+        <Form />
+        <TodoList/>
+       
       </header>
     </div>
   );
