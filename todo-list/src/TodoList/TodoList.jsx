@@ -1,33 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 
-const TodoList = () => {
-  const initialTodos = [
-    {text: "My first todo", checked:false},
-    {text: "My second todo", checked: false },
-];
-
-  const [todos, setTodos] = useState(initialTodos);
-
-  const handleCheckboxChange = (index) => {
-    setTodos((prevTodos) => {
-      const newTodos = [...prevTodos];
-      newTodos[index] = {
-        ...newTodos[index],
-        checked: !newTodos[index].checked,
-      };
-      return newTodos;
-    });
-  };
-
+const TodoList = ({ todos }) => {
+  const handleChange = () => { 
+    
+    console.log('The checkbox was toggled'); 
+    
+  };   
   return (
     <ul>
       {todos.map((todo, index) => (
-        <li key={index}>
-          <input
-            type="checkbox"
-            checked={todo.checked}
-            onChange={() => handleCheckboxChange(index)}
-          />
+        <li key={index} className="liStyle">
+          <input type="checkbox" checked={todo.checked} 
+          onChange={handleChange} className="liStyle__checkbox"/>
           {todo.text}
         </li>
       ))}
@@ -35,4 +19,5 @@ const TodoList = () => {
   );
 };
 
-export default TodoList
+export default TodoList;
+

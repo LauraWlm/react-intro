@@ -1,0 +1,22 @@
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    list-style: none;
+    &__addTodo{
+        color: rgb(0, 0, 0);
+        padding: 0.3rem;
+        border-radius: 10px;
+        background-color: #ffffff0b;
+        backdrop-filter:initial;
+        border: #ad1eea 0.1px solid;
+    }
+&__submit{
+    padding: 0.5rem;
+    border-radius: 10px;
+    border: none;
+    background-color:#ad1eea;
+}
+}

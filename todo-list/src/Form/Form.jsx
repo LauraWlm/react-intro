@@ -1,25 +1,26 @@
-import React, { useRef } from "react";
+import React, { useState } from "react";
 
-const Form = () => {
-  const inputRef = useRef();
+const Form = ({ addTodo }) => {
+  const [inputValue, setInputValue] = useState("");
 
-  function clickHandler() {
-    const inputElement = inputRef.current;
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (inputValue.trim()) {
+      addTodo(inputValue.trim());
+      setInputValue("");
+    }
+  };
 
-    console.log(inputElement.value)
-  }
+  const handleChange = (e) => {
+    setInputValue(e.target.value);
+  };
 
   return (
-    <div>
-      <input
-       ref={inputRef}
-        type="text"
-        name="newTodo"
-        placeholder="Type a new todo"
-      />
-      <br />
-      <button onClick={clickHandler}>Add todo</button>
-    </div>
+    <form onSubmit={handleSubmit} className="form">
+      <input type="text" value={inputValue} onChange={handleChange} className="form__addTodo" placeholder="Add new Todo"/>
+      <button type="submit" className="form__submit">Add Todo</button>
+    </form>
   );
 };
+
 export default Form;
