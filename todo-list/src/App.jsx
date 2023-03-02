@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from "react";
-import './style/App.scss';
-import './style/Form.scss';
-import './style/TodoList.scss';
 import './Header/Header';
 import Form from './Form/Form';
 import TodoList from './TodoList/TodoList';
 import Header from "./Header/Header";
-import { v4 as uuidv4 } from "uuid";
 
 const LSKEY = "MyTodoApp";
 
@@ -39,4 +35,4 @@ function App() {
   );
 }
 
-export default App;
+export default App
