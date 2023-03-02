@@ -9,11 +9,18 @@ const LSKEY = "MyTodoApp";
 
 function App() {
   // Initialize the state
-  const [todos, setTodos] = useState([]);
+  const initialTodos = [];
+  const [todos, setTodos] = useState(initialTodos);
 
   // Update the state
  const addTodo = (text) => {
     setTodos([...todos, { id: uuidv4(), text, completed: false }]);
+  };
+
+  const toggleCompleted = (index) => {
+    const newTodos = [...todos];
+    newTodos[index].completed = !newTodos[index].completed;
+    setTodos(newTodos);
   };
 
   //Save todos to localStorage
@@ -28,10 +35,9 @@ function App() {
         <Header />
       </header>
       <main>
-      <Form onAddTodo={addTodo} />
-      <TodoList todos={todos} addTodo={addTodo} />
+        <Form onAddTodo={addTodo} />
+        <TodoList todos={todos} onToggleCompleted={toggleCompleted} />
       </main>
-      
     </div>
   );
 }
