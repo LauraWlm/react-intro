@@ -1,12 +1,12 @@
 import React, { useRef, useState } from "react";
 
-export default function Form({onAddTodo}) {
+export default function Form() {
   const inputRef = useRef();
   const[addTodo, setAddTodo] = useState("");
 
   function clickHandler() {
     const inputElement = inputRef.current;
-    onAddTodo(inputElement.value)
+    setAddTodo(inputElement.value)
 
     // Do something with inputElement...
     console.log(inputElement.value);

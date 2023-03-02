@@ -1,0 +1,19 @@
+.form{
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+   &__input{
+    border:none;
+    border-radius: 10px;
+    height: 2rem;
+    text-align: center;
+   }
+   &__button{
+    border:none;
+    border-radius: 10px;
+    height: 2rem;
+    width: 35%;
+    background-color: rgb(236, 129, 229);
+    color: rgb(0, 0, 0);
+   }
+}

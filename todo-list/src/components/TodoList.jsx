@@ -1,27 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 
-const TodoList = ({ todos, onToggleCompleted }) => {
-  const handleChange = (index) => {
-    onToggleCompleted(index);
+export default function TodoList() {
+  const initialTodos = [
+    { text: "My first todo", completed: false },
+    { text: "My second todo", completed: false },
+  ];
 
-    console.log("The checkbox was toggled");
-  };
+  const [todos, setTodos] = useState(initialTodos);
 
+  function handleToggle(index) {
+    const newTodos = [...todos];
+  newTodos[index].completed = !newTodos[index].completed;
+  setTodos(newTodos);
+  }
+  
   return (
     <ul>
       {todos.map((todo, index) => (
-        <li key={index} className="liStyle">
-          <input
-            type="checkbox"
-            checked={todo.completed}
-            onChange={()=> handleChange(index)}
-            className="liStyle__checkbox"
-          />
-          {todo.text}
+        <li key={index}>
+          <input 
+          type="checkbox"
+          checked={todo.completed}
+          onChange={() => handleToggle(index)} /> {todo.text}
         </li>
       ))}
     </ul>
   );
-};
-
-export default TodoList;
+}

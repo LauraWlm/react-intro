@@ -3,31 +3,16 @@ import './components/Header';
 import Form from './components/Form';
 import TodoList from './components/TodoList';
 import Header from "./components/Header";
-import { v4 as uuidv4 } from "uuid";
-
-const LSKEY = "MyTodoApp";
 
 function App() {
   // Initialize the state
-  const initialTodos = [];
-  const [todos, setTodos] = useState(initialTodos);
+  const [todos, setTodos] = useState([]);
+  const[inputTodo, setInputTodo] = useState("");
 
   // Update the state
- const addTodo = (text) => {
-    setTodos([...todos, { id: uuidv4(), text, completed: false }]);
-  };
-
-  const toggleCompleted = (index) => {
-    const newTodos = [...todos];
-    newTodos[index].completed = !newTodos[index].completed;
-    setTodos(newTodos);
-  };
-
-  //Save todos to localStorage
-  useEffect(() => {
-    window.localStorage.setItem(LSKEY + "todos", JSON.stringify(todos))
-  }, [todos]);
-
+  const addTodo = (text) => {
+    setTodos((prevTodos) => [...prevTodos, { text, checked: false }]);
+  }
 
   return (
     <div className="app">
@@ -35,11 +20,12 @@ function App() {
         <Header />
       </header>
       <main>
-        <Form onAddTodo={addTodo} />
-        <TodoList todos={todos} onToggleCompleted={toggleCompleted} />
+      <Form addTodo={addTodo} />
+      <TodoList todos={todos} addTodo={addTodo} />
       </main>
+      
     </div>
   );
 }
 
-export default App;
+export default App
