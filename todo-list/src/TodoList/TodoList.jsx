@@ -1,8 +1,11 @@
 import React from "react";
 
 const TodoList = ({ todos }) => {
-  const handleChange = () => { 
-    
+
+  const handleChange = (index) => { 
+    const newTodos = [...todos];
+    newTodos[index].completed = !newTodos[index].completed;
+    setTodos(newTodos);
     console.log('The checkbox was toggled'); 
     
   };   
@@ -10,7 +13,7 @@ const TodoList = ({ todos }) => {
     <ul>
       {todos.map((todo, index) => (
         <li key={index} className="liStyle">
-          <input type="checkbox" checked={todo.checked} 
+          <input type="checkbox" checked={todo.completed} 
           onChange={handleChange} className="liStyle__checkbox"/>
           {todo.text}
         </li>

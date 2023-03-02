@@ -3,6 +3,7 @@ import './Header/Header';
 import Form from './Form/Form';
 import TodoList from './TodoList/TodoList';
 import Header from "./Header/Header";
+import { v4 as uuidv4 } from "uuid";
 
 const LSKEY = "MyTodoApp";
 
@@ -11,9 +12,9 @@ function App() {
   const [todos, setTodos] = useState([]);
 
   // Update the state
-  const addTodo = (text) => {
-    setTodos((prevTodos) => [...prevTodos, { id: uuidv4(), text, checked: false }]);
-  }
+ const addTodo = (text) => {
+    setTodos([...todos, { id: uuidv4(), text, completed: false }]);
+  };
 
   //Save todos to localStorage
   useEffect(() => {
@@ -27,7 +28,7 @@ function App() {
         <Header />
       </header>
       <main>
-      <Form addTodo={addTodo} />
+      <Form onAddTodo={addTodo} />
       <TodoList todos={todos} addTodo={addTodo} />
       </main>
       
@@ -35,4 +36,4 @@ function App() {
   );
 }
 
-export default App
+export default App;
