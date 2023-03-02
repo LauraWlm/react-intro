@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import './Header/Header';
-import Form from './Form/Form';
-import TodoList from './TodoList/TodoList';
-import Header from "./Header/Header";
+import './components/Header';
+import Form from './components/Form';
+import TodoList from './components/TodoList';
+import Header from "./components/Header";
 import { v4 as uuidv4 } from "uuid";
 
 const LSKEY = "MyTodoApp";
