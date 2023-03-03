@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const TodoList = ({todos}) => {
+const TodoList = ({todos, done}) => {
  
   const [checked, setChecked] = useState(false);
   const handleChange = () => {
@@ -16,7 +16,8 @@ const TodoList = ({todos}) => {
           <input 
           type="checkbox"
           checked={checked}
-          onChange={handleChange} /> {todo}
+          onChange={handleChange}
+           /> {todo}
         </li>
       ))}
     </ul>

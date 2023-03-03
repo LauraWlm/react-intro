@@ -2,12 +2,13 @@
 @import './App';
 @import './List';
 @import './Header';
+@import './Footer';
 
 
 body{
     background-color: rgb(53, 4, 48);
     display: flex;
     flex-direction: column;
-    align-items: center;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+    align-items: center; 
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }

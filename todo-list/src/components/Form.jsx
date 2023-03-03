@@ -7,7 +7,7 @@ const Form = ({clickHandler, inputRef}) => {
     <div className="form">
       <input className="form__input" ref={inputRef} type="text" placeholder="Write a new todo" />
       <br />
-      <button className="form__button" onClick={clickHandler}>Add todo</button>
+      <button className="form__button" onClick={clickHandler} >Add todo</button>
     </div>
   );
 };
