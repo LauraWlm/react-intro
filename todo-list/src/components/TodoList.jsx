@@ -1,29 +1,26 @@
 import React, { useState } from "react";
 
-export default function TodoList() {
-  const initialTodos = [
-    { text: "My first todo", completed: false },
-    { text: "My second todo", completed: false },
-  ];
+const TodoList = ({todos}) => {
+ 
+  const [checked, setChecked] = useState(false);
+  const handleChange = () => {
+    setChecked(!checked);
+  };
 
-  const [todos, setTodos] = useState(initialTodos);
-
-  function handleToggle(index) {
-    const newTodos = [...todos];
-  newTodos[index].completed = !newTodos[index].completed;
-  setTodos(newTodos);
-  }
-  
   return (
+    <div>
+      <h2>Todos</h2>
     <ul>
       {todos.map((todo, index) => (
         <li key={index}>
           <input 
           type="checkbox"
-          checked={todo.completed}
-          onChange={() => handleToggle(index)} /> {todo.text}
+          checked={checked}
+          onChange={handleChange} /> {todo}
         </li>
       ))}
     </ul>
+    </div>
   );
 }
+ export default TodoList;
