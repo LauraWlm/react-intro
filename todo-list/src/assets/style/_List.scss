@@ -1,0 +1,11 @@
+.list{
+    color: white; 
+   
+    &__h2{
+        color: white;
+        font-weight:400;
+    }
+    &__li{
+         list-style: none;
+    }
+}

@@ -8,11 +8,11 @@ const TodoList = ({todos}) => {
   };
 
   return (
-    <div>
-      <h2>Todos</h2>
+    <div className="list">
+      <h2 className="list__h2">Todos</h2>
     <ul>
       {todos.map((todo, index) => (
-        <li key={index}>
+        <li className="list__li" key={index}>
           <input 
           type="checkbox"
           checked={checked}
